@@ -58,7 +58,7 @@ def runModel(outFile, nuW_start, nuC_start, T_start, m21_start):
         print 'perturbed parameters: ', p0, "\n"
         popt = dadi.Inference.optimize_log(p0, fs, func_ex, pts_l, lower_bound=lower_bound, upper_bound=upper_bound, maxiter=None, verbose=len(params)) 
         print 'Optimized parameters:', repr(popt), "\n"
-
+	
         #use the optimized parameters in a new model to try to get the parameters to converge
         new_model = func_ex(popt, ns, pts_l)
         ll_opt = dadi.Inference.ll_multinom(new_model, fs)
